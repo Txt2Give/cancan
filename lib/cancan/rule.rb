@@ -99,6 +99,7 @@ module CanCan
     # override_matching_for_conditions?(subject, conditions) and
     # matches_conditions_hash?(subject, conditions)
     def matches_conditions_hash?(subject, conditions = @conditions)
+      subject = subject.first if subject.respond_to? :each
       if conditions.empty?
         true
       else
